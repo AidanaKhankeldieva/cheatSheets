@@ -1,0 +1,441 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica-Light;\f1\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;\red20\green25\blue32;\red255\green255\blue255;}
+{\*\expandedcolortbl;;\cssrgb\c10196\c12941\c16863;\cssrgb\c100000\c100000\c100000;}
+\margl1440\margr1440\vieww25100\viewh15700\viewkind0
+\deftab720
+\pard\pardeftab720\sl720\sa200\partightenfactor0
+
+\f0\fs60 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 1 \'96 SYSTEM INFORMATION\
+\pard\pardeftab720\sl420\partightenfactor0
+
+\f1\fs36 \cf2 # Display Linux system information\
+uname -a\
+\
+# Display kernel release information\
+uname -r\
+\
+# Show which version of redhat installed\
+cat /etc/redhat-release\
+\
+# Show how long the system has been running + load\
+uptime\
+\
+# Show system host name\
+hostname\
+\
+# Display the IP addresses of the host\
+hostname -I\
+\
+# Show system reboot history\
+last reboot\
+\
+# Show the current date and time\
+date\
+\
+# Show this month's calendar\
+cal\
+\
+# Display who is online\
+w\
+\
+# Who you are logged in as\
+whoami\
+\pard\pardeftab720\sl720\sa200\partightenfactor0
+
+\f0\fs60 \cf2 2 \'96 HARDWARE INFORMATION\
+\pard\pardeftab720\sl420\partightenfactor0
+
+\f1\fs36 \cf2 # Display messages in kernel ring buffer\
+dmesg\
+\
+# Display CPU information\
+cat /proc/cpuinfo\
+\
+# Display memory information\
+cat /proc/meminfo\
+\
+# Display free and used\'a0memory ( -h\'a0for human readable, -m\'a0for MB, -g\'a0for GB.)\
+free -h\
+\
+# Display PCI devices\
+lspci -tv\
+\
+# Display USB devices\
+lsusb -tv\
+\
+# Display DMI/SMBIOS (hardware info) from the BIOS\
+dmidecode\
+\
+# Show info about disk sda\
+hdparm -i /dev/sda\
+\
+# Perform a read speed test on disk sda\
+hdparm -tT /dev/sda\
+\
+# Test for unreadable blocks on disk sda\
+badblocks -s /dev/sda\
+\pard\pardeftab720\sl720\sa200\partightenfactor0
+
+\f0\fs60 \cf2 3 \'96 PERFORMANCE MONITORING AND STATISTICS\
+\pard\pardeftab720\sl420\partightenfactor0
+
+\f1\fs36 \cf2 # Display and manage the top processes\
+top\
+\
+# Interactive process viewer (top alternative)\
+htop\
+\
+# Display processor related statistics\
+mpstat 1\
+\
+# Display virtual memory statistics\
+vmstat 1\
+\
+# Display I/O statistics\
+iostat 1\
+\
+# Display the last 100 syslog messages \'a0(Use /var/log/syslog\'a0for Debian based systems.)\
+tail 100 /var/log/messages\
+\
+# Capture and display all packets on interface eth0\
+tcpdump -i eth0\
+\
+# Monitor all traffic on port 80 ( HTTP )\
+tcpdump -i eth0 'port 80'\
+\
+# List all open files on the system\
+lsof\
+\
+# List files opened by user\
+lsof -u user\
+\
+# Display free and used memory ( -h for human readable, -m for MB, -g for GB.)\
+free -h\
+\
+# Execute "df -h", showing periodic updates\
+watch df -h\
+\pard\pardeftab720\sl720\sa200\partightenfactor0
+
+\f0\fs60 \cf2 4 \'96 USER INFORMATION AND MANAGEMENT\
+\pard\pardeftab720\sl420\partightenfactor0
+
+\f1\fs36 \cf2 # Display the user and group ids of your current user.\
+id\
+\
+# Display the last users who have logged onto the system.\
+last\
+\
+# Show who is logged into the system.\
+who\
+\
+# Show who is logged in and what they are doing.\
+w\
+\
+# Create a group named "test".\
+groupadd test\
+\
+# Create an account named john, with a comment of "John Smith" and create the user's home directory.\
+useradd -c "John Smith" -m john\
+\
+# Delete the john account.\
+userdel john\
+\
+# Add the john account to the sales group\
+usermod -aG sales john\
+\pard\pardeftab720\sl720\sa200\partightenfactor0
+
+\f0\fs60 \cf2 5 \'96 FILE AND DIRECTORY COMMANDS\
+\pard\pardeftab720\sl420\partightenfactor0
+
+\f1\fs36 \cf2 # List all files in a long listing (detailed) format\
+ls -al\
+\
+# Display the present working directory\
+pwd\
+\
+# Create a directory\
+mkdir directory\
+\
+# Remove (delete) file\
+rm file\
+\
+# Remove the directory and its contents recursively\
+rm -r directory\
+\
+# Force removal of file without prompting for confirmation\
+rm -f file\
+\
+# Forcefully remove directory recursively\
+rm -rf directory\
+\
+# Copy file1 to file2\
+cp file1 file2\
+\
+# Copy source_directory\'a0recursively to destination. If destination exists, copy source_directory\'a0into destination, otherwise create destination\'a0with the contents of source_directory.\
+cp -r source_directory destination\
+\
+# Rename or move file1\'a0to file2. If file2 is an existing directory, move file1 into directory file2\
+mv file1 file2\
+\
+# Create symbolic link to linkname\
+ln -s /path/to/file linkname\
+\
+# Create an empty file or update the access and modification times of file.\
+touch file\
+\
+# View the contents of file\
+cat file\
+\
+# Browse through a text file\
+less file\
+\
+# Display the first 10 lines of file\
+head file\
+\
+# Display the last 10 lines of file\
+tail file\
+\
+# Display the last 10 lines of file\'a0and "follow" the file as it grows.\
+tail -f file\
+\pard\pardeftab720\sl720\sa200\partightenfactor0
+
+\f0\fs60 \cf2 6 \'96 PROCESS MANAGEMENT\
+\pard\pardeftab720\sl420\partightenfactor0
+
+\f1\fs36 \cf2 # Display your currently running processes\
+ps\
+\
+# Display all the currently running processes on the system.\
+ps -ef\
+\
+# Display process information for processname\
+ps -ef | grep processname\
+\
+# Display and manage the top processes\
+top\
+\
+# Interactive process viewer (top alternative)\
+htop\
+\
+# Kill process with process ID of pid\
+kill pid\
+\
+# Kill all processes named processname\
+killall processname\
+\
+# Start program\'a0in the background\
+program &\
+\
+# Display stopped or background jobs\
+bg\
+\
+# Brings the most recent background job to foreground\
+fg\
+\
+# Brings job n\'a0to the foreground\
+fg n\
+\pard\pardeftab720\sl720\sa200\partightenfactor0
+
+\f0\fs60 \cf2 7 \'96 FILE PERMISSIONS\
+\pard\pardeftab720\sl420\partightenfactor0
+
+\f1\fs36 \cf2 \cb1 \
+\pard\pardeftab720\sl420\partightenfactor0
+\cf2 \cb3 \
+\'a0 \'a0 \'a0 \'a0 PERMISSION \'a0 \'a0 \'a0EXAMPLE\
+\
+\'a0 \'a0 \'a0 \'a0 \'a0U \'a0 G \'a0 W\
+\'a0 \'a0 \'a0 \'a0 rwx rwx rwx \'a0 \'a0 chmod 777 filename\
+\'a0 \'a0 \'a0 \'a0 rwx rwx r-x \'a0 \'a0 chmod 775 filename\
+\'a0 \'a0 \'a0 \'a0 rwx r-x r-x \'a0 \'a0 chmod 755 filename\
+\'a0 \'a0 \'a0 \'a0 rw- rw- r-- \'a0 \'a0 chmod 664 filename\
+\'a0 \'a0 \'a0 \'a0 rw- r-- r-- \'a0 \'a0 chmod 644 filename\
+\
+# NOTE: Use 777 sparingly!\
+\
+\'a0 \'a0 \'a0 \'a0 LEGEND\
+\'a0 \'a0 \'a0 \'a0 U = User\
+\'a0 \'a0 \'a0 \'a0 G = Group\
+\'a0 \'a0 \'a0 \'a0 W = World\
+\
+\'a0 \'a0 \'a0 \'a0 r = Read\
+\'a0 \'a0 \'a0 \'a0 w = write\
+\'a0 \'a0 \'a0 \'a0 x = execute\
+\'a0 \'a0 \'a0 \'a0 - = no access\
+\pard\pardeftab720\sl720\sa200\partightenfactor0
+
+\f0\fs60 \cf2 8 \'96 NETWORKING\
+\pard\pardeftab720\sl420\partightenfactor0
+
+\f1\fs36 \cf2 # Display all network interfaces and ip address\
+ifconfig -a\
+\
+# Display eth0 address and details\
+ifconfig eth0\
+\
+# Query or control network driver and hardware settings\
+ethtool eth0\
+\
+# Send ICMP echo request to host\
+ping host\
+\
+# Display whois information for domain\
+whois domain\
+\
+# Display DNS information for domain\
+dig domain\
+\
+# Reverse lookup of IP_ADDRESS\
+dig -x IP_ADDRESS\
+\
+# Display DNS ip address for domain\
+host domain\
+\
+# Display the network address of the host name.\
+hostname -i\
+\
+# Display all local ip addresses\
+hostname -I\
+\
+# Download http://domain.com/file\
+wget http://domain.com/file\
+\
+# Display listening tcp and udp ports and corresponding programs\
+netstat -nutlp\
+\pard\pardeftab720\sl420\sa560\partightenfactor0
+
+\f0 \cf2 \'a0\
+\pard\pardeftab720\sl720\sa200\partightenfactor0
+
+\fs60 \cf2 9 \'96 ARCHIVES (TAR FILES)\
+\pard\pardeftab720\sl420\partightenfactor0
+
+\f1\fs36 \cf2 # Create tar named archive.tar\'a0containing directory.\
+tar cf archive.tar directory\
+\
+# Extract the contents from archive.tar.\
+tar xf archive.tar\
+\
+# Create a gzip compressed tar file name archive.tar.gz.\
+tar czf archive.tar.gz directory\
+\
+# Extract a gzip compressed tar file.\
+tar xzf archive.tar.gz\
+\
+# Create a tar file with bzip2 compression\
+tar cjf archive.tar.bz2 directory\
+\
+# Extract a bzip2 compressed tar file.\
+tar xjf archive.tar.bz2\
+\pard\pardeftab720\sl720\sa200\partightenfactor0
+
+\f0\fs60 \cf2 10 \'96 INSTALLING PACKAGES\
+\pard\pardeftab720\sl420\partightenfactor0
+
+\f1\fs36 \cf2 # Search for a package by keyword.\
+yum search keyword\
+\
+# Install package.\
+yum install package\
+\
+# Display description and summary information about package.\
+yum info package\
+\
+# Install package from local file named package.rpm\
+rpm -i package.rpm\
+\
+# Remove/uninstall package.\
+yum remove package\
+\
+# Install software from source code.\
+tar zxvf sourcecode.tar.gz\
+cd sourcecode\
+./configure\
+make\
+make install\
+\pard\pardeftab720\sl720\sa200\partightenfactor0
+
+\f0\fs60 \cf2 11 \'96 SEARCH\
+\pard\pardeftab720\sl420\partightenfactor0
+
+\f1\fs36 \cf2 # Search for pattern\'a0in file\
+grep pattern file\
+\
+# Search recursively for pattern\'a0in directory\
+grep -r pattern directory\
+\
+# Find files and directories by name\
+locate name\
+\
+# Find files in /home/john\'a0that start with "prefix".\
+find /home/john -name 'prefix*'\
+\
+# Find files larger than 100MB in /home\
+find /home -size +100M\
+\pard\pardeftab720\sl720\sa200\partightenfactor0
+
+\f0\fs60 \cf2 12 \'96 SSH LOGINS\
+\pard\pardeftab720\sl420\partightenfactor0
+
+\f1\fs36 \cf2 # Connect to host\'a0as your local username.\
+ssh host\
+\
+# Connect to host\'a0as user\
+ssh user@host\
+\
+# Connect to host\'a0using port\
+ssh -p port user@host\
+\pard\pardeftab720\sl720\sa200\partightenfactor0
+
+\f0\fs60 \cf2 13 \'96 FILE TRANSFERS\
+\pard\pardeftab720\sl420\partightenfactor0
+
+\f1\fs36 \cf2 # Secure copy file.txt to the /tmp folder on server\
+scp file.txt server:/tmp\
+\
+# Copy *.html\'a0files from server\'a0to the local /tmp folder.\
+scp server:/var/www/*.html /tmp\
+\
+# Copy all files and directories recursively from server\'a0to the current system's /tmp folder.\
+scp -r server:/var/www /tmp\
+\
+# Synchronize /home\'a0to\'a0/backups/home\
+rsync -a /home /backups/\
+\
+# Synchronize files/directories between the local and remote system with compression enabled\
+rsync -avz /home server:/backups/\
+\pard\pardeftab720\sl720\sa200\partightenfactor0
+
+\f0\fs60 \cf2 14 \'96 DISK USAGE\
+\pard\pardeftab720\sl420\partightenfactor0
+
+\f1\fs36 \cf2 # Show free and used space on mounted filesystems\
+df -h\
+\
+# Show free and used inodes on mounted filesystems\
+df -i\
+\
+# Display disks partitions sizes and types\
+fdisk -l\
+\
+# Display disk usage for all files and directories in human readable format\
+du -ah\
+\
+# Display total disk usage off the current directory\
+du -sh\
+\pard\pardeftab720\sl720\sa200\partightenfactor0
+
+\f0\fs60 \cf2 15 \'96 DIRECTORY NAVIGATION\
+\pard\pardeftab720\sl420\partightenfactor0
+
+\f1\fs36 \cf2 # To go up one level of the directory tree. \'a0(Change into the parent directory.)\
+cd ..\
+\
+# Go to the $HOME directory\
+cd\
+\
+# Change to the /etc directory\
+cd /etc\
+}
